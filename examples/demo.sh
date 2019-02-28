@@ -1,11 +1,15 @@
 DATADIR=../data
-WORDFILE=$DATADIR/glove.840B.300d.txt
+#WORDFILE=$DATADIR/glove.840B.300d.txt
+WORDFILE=$DATADIR/glove.6B.50d.txt
 
 # download word vector
 if [ ! -e $WORDFILE ]; then
-wget http://nlp.stanford.edu/data/glove.840B.300d.zip
-unzip glove.840B.300d.zip -d $DATADIR
-rm glove.840B.300d.zip
+# wget http://nlp.stanford.edu/data/glove.840B.300d.zip
+aria2c -x 16 http://nlp.stanford.edu/data/glove.6B.zip
+# unzip glove.840B.300d.zip -d $DATADIR
+unzip glove.6B.zip -d $DATADIR
+# rm glove.840B.300d.zip
+rm glove.6B.zip
 fi
 
 # demo for computing SIF embedding

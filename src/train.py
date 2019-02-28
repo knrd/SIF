@@ -45,7 +45,7 @@ def get_pc(data, We, weight4ind, params):
         "Compute the weighted average vectors"
         n_samples = x.shape[0]
         emb = np.zeros((n_samples, We.shape[1]))
-        for i in xrange(n_samples):
+        for i in range(n_samples):
             emb[i,:] = w[i,:].dot(We[x[i,:],:]) / np.count_nonzero(w[i,:])
         return emb
 
@@ -74,7 +74,7 @@ def train_util(model, train_data, dev, test, train, words, params):
     "utility function for training the model"
     start_time = time()
     try:
-        for eidx in xrange(params.epochs):
+        for eidx in range(params.epochs):
             kf = data_io.get_minibatches_idx(len(train_data), params.batchsize, shuffle=True)
             uidx = 0
             for _, train_index in kf:
